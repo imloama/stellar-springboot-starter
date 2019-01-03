@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.stellar.sdk.Network;
 
 import com.github.imloama.stellar.config.StellarConfiguration;
 import com.github.imloama.stellar.service.StellarService;
@@ -20,6 +19,6 @@ public class StellarAutoConfigure {
 
 	@Bean
 	StellarService stellarServiceBean() {
-		
+		return new StellarService(config);
 	}
 }

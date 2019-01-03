@@ -20,14 +20,12 @@ group = 'com.github.imloama'
 version = '0.0.1'
 sourceCompatibility = 1.8
 
-ext {
-		stellarSdkVersion = '0.4.1'
-}
+
 
 repositories {
 	mavenLocal()
 	jcenter()
-	maven{ url 'https://jetpack.io' }
+	maven{ url 'https://jitpack.io' }
 	mavenCentral()
 }
 
@@ -35,7 +33,7 @@ repositories {
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter')
 	
-	implementation('com.github.stellar:java-stellar-sdk:${stellarSdkVersion}')
+	implementation('com.github.stellar:java-stellar-sdk:0.4.1')
 
 	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
