@@ -3,27 +3,33 @@ buildscript {
 		springBootVersion = '2.1.1.RELEASE'
 	}
 	repositories {
+		mavenLocal()
+        maven{ url 'https://maven.aliyun.com/repository/public' }
+        maven{ url 'https://jitpack.io' }
 		mavenCentral()
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 	}
 }
+plugins { id "io.spring.dependency-management" version "1.0.5.RELEASE" }
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
 
 group = 'com.github.imloama'
 version = '0.0.1'
 sourceCompatibility = 1.8
 
-
+jar{
+	baseName = 'stellar-springboot-start'
+	version = '0.0.1'
+}
 
 repositories {
 	mavenLocal()
+	maven{ url 'https://maven.aliyun.com/repository/public' }
 	jcenter()
 	maven{ url 'https://jitpack.io' }
 	mavenCentral()
@@ -32,10 +38,12 @@ repositories {
 
 dependencies {
 	implementation('org.springframework.boot:spring-boot-starter')
-	
 	implementation('com.github.stellar:java-stellar-sdk:0.4.1')
 
-	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	compileOnly('org.projectlombok:lombok')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
+
+dependencyManagement {
+	imports { mavenBom("org.springframework.boot:spring-boot-dependencies:${springBootVersion}") }
 }
