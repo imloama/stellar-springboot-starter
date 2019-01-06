@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.util.StringUtils;
 import org.stellar.sdk.Network;
 import org.stellar.sdk.Server;
+import org.stellar.sdk.KeyPair;
 
 @Data
 public class StellarService{
@@ -32,6 +33,17 @@ public class StellarService{
         this.server = new Server(horizon);
         return this.server;
     }
+    
+    public boolean isValidAccountId(String accountid){
+      try{
+          KeyPair.fromAccountId(accountid);
+          return true;
+      }catch(Exception e){
+        return false;
+      }    
+    }
+    
+    
 
 
 
