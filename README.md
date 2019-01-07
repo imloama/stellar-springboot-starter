@@ -13,6 +13,6 @@ java stellar sdk for spring boot
 2. Add the dependency
 ```
 dependencies {
-	        implementation 'com.github.imloama:stellar-spring-boot-starter:0.0.1'
+	        implementation 'com.github.imloama:stellar-springboot-starter:0.0.1'
 	}
 ```
